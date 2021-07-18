@@ -1,0 +1,147 @@
+<!--
+
+Google Chart 
+
+Pie Chart Example
+
+Autor: P. Dias
+
+Data: July 2018
+
+-->
+
+<html>
+    <head>
+        <!--Load the AJAX API-->
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            // Load the Visualization API and the corechart package.
+            google.charts.load("current", { packages: ["corechart"] });
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Callback that creates and populates a data table,
+            // instantiates the pie chart, passes in the data and
+            // draws it.
+
+            function drawChart() {
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+
+                // First column
+                data.addColumn("string", "Curricular year");
+
+                // Second column
+                data.addColumn("number", "Number of Students");
+
+                data.addRows([
+                    ["1st year", 79],
+                    ["2nd year", 112],
+                    ["3rd year", 68],
+                    ["4th year", 62],
+                    ["5th year", 83],
+                ]);
+
+                // Set chart configuration options
+                var options = {
+                    title: "UA - MIECT - Students by curricular year",
+                    width: 600,
+                    height: 400,
+                    is3D: true,
+                };
+
+                // Instantiate the pie chart.
+                var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                chart.draw(data, options);
+
+                // Instantiate the bar chart.
+                var chart2 = new google.visualization.BarChart(document.getElementById("chart_div2"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                chart2.draw(data, options);
+
+                // Instantiate the column chart.
+                var chart3 = new google.visualization.ColumnChart(document.getElementById("chart_div3"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                chart3.draw(data, options);
+
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+
+                // First column
+                data.addColumn("string", "Curricular year");
+
+                // Second column
+                data.addColumn("number", "MIEET");
+
+                // Third column
+                data.addColumn("number", "MIECT");
+
+                // Fourth column
+                data.addColumn("number", "LTSI");
+
+                // Fiveth column
+                data.addColumn("number", "LEI");
+
+                // Sixth column
+                data.addColumn("number", "Total");
+
+                data.addRows([
+                    ["2007", 328, 589, 115, 0, 831],
+                    ["2008", 361, 605, 223, 0, 972],
+                    ["2009", 600, 365, 152, 0, 755],
+                    ["2010", 360, 357, 129, 0, 678],
+                    ["2011", 325, 316, 96, 0, 581],
+                    ["2012", 394, 344, 93, 0, 653],
+                    ["2013", 404, 294, 102, 0, 622],
+                    ["2014", 271, 307, 0, 501, 780],
+                    ["2015", 402, 291, 0, 843, 1164],
+                    ["2016", 367, 337, 0, 802, 1175],
+                    ["2017", 407, 399, 0, 691, 1147],
+                ]);
+
+                // Set chart configuration options
+                var options = {
+                    title: "UA - Number of candidates witch course by year",
+                    width: 600,
+                    height: 400,
+                    is3D: true,
+                };
+
+                // Instantiate the bar chart.
+                var chart4 = new google.visualization.BarChart(document.getElementById("chart_div4"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                chart4.draw(data, options);
+
+                // Instantiate the line chart.
+                var chart5 = new google.visualization.LineChart(document.getElementById("chart_div5"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                chart5.draw(data, options);
+
+                // Instantiate the combo chart.
+                var chart6 = new google.visualization.ComboChart(document.getElementById("chart_div6"));
+                debugger;
+                // Draw the chart, passing in some configuration options.
+                (options["seriesType"] = "bars"), (options["series"] = { 4: { type: "line" } });
+                chart6.draw(data, options);
+            } // drawChart( )
+        </script>
+    </head>
+
+    <body style="display: grid; grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))">
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div" style="width: 600; height: 400"></div>
+        <div id="chart_div2" style="width: 600; height: 400"></div>
+        <div id="chart_div3" style="width: 600; height: 400"></div>
+        <div id="chart_div4" style="width: 600; height: 400"></div>
+        <div id="chart_div5" style="width: 600; height: 400"></div>
+        <div id="chart_div6" style="width: 600; height: 400"></div>
+    </body>
+</html>
